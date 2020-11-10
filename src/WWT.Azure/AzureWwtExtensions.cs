@@ -1,6 +1,5 @@
 ﻿using Azure.Core;
 using Azure.Identity;
-using Azure.Storage.Blobs;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using WWT.Azure.Catalog;
@@ -56,6 +55,7 @@ namespace WWT.Azure
             services.Services.AddSingleton(options);
             services.Services.AddSingleton<IPlateTilePyramid, MarsMolaAwareSeekableAzurePlateTilePyramid>();
             services.Services.AddSingleton<IKnownPlateFiles, AzureKnownPlateFile>();
+            services.Services.AddSingleton<IPlateTileDownloader, AzurePlateFileDownloader>();
 
             return services;
         }
